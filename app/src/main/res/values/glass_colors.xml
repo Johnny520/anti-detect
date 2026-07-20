@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Liquid Glass 调色板（日间） -->
+    <color name="glass_primary">#4F7CFF</color>
+    <color name="glass_primary_container">#DCE6FF</color>
+    <color name="glass_on_primary">#FFFFFF</color>
+    <color name="glass_secondary">#7C5CFF</color>
+    <color name="glass_surface">#CCFFFFFF</color>
+    <color name="glass_surface_variant">#A6FFFFFF</color>
+    <color name="glass_on_surface">#1A1C24</color>
+    <color name="glass_on_surface_variant">#4A4E5A</color>
+    <color name="glass_outline">#80FFFFFF</color>
+    <color name="glass_nav">#66000000</color>
+</resources>

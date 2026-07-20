@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.AntiDetect" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/green</item>
-        <item name="colorPrimaryContainer">@color/green_light</item>
-        <item name="android:colorBackground">@color/white</item>
-    </style>
-
-    <!-- 液态玻璃 UI（默认主题 · 日间） -->
+    <!-- 液态玻璃 UI（默认主题 · 夜间） -->
     <style name="Theme.LiquidGlass" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/glass_window_bg</item>
         <item name="colorPrimary">@color/glass_primary</item>
@@ -21,6 +15,6 @@
         <item name="colorOutline">@color/glass_outline</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@color/glass_nav</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
