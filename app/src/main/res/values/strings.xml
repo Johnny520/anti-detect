@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Anti-Detect 反检测</string>
+    <string name="title_enabled">总开关（反检测）</string>
+    <string name="title_whitelist">白名单（不隐藏这些 App，一行一个包名）</string>
+    <string name="btn_save">保存配置</string>
+</resources>

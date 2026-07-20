@@ -4,3 +4,5 @@ obj/
 out/
 *.zip
 .DS_Store
+app/build/
+logs*
