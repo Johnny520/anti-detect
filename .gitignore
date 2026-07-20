@@ -1,0 +1,6 @@
+# 构建产物（本地 ndk-build 会生成，不需要提交）
+libs/
+obj/
+out/
+*.zip
+.DS_Store

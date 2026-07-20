@@ -1,0 +1,57 @@
+name: Build Anti-Detect Module
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Android NDK
+        uses: ndk-actions/setup-ndk@v1
+        with:
+          ndk-version: r25c
+
+      - name: Build native library (libanti_detect.so)
+        run: |
+          $ANDROID_NDK_HOME/ndk-build \
+            NDK_PROJECT_PATH=. \
+            APP_BUILD_SCRIPT=./jni/Android.mk \
+            NDK_APPLICATION_MK=./jni/Application.mk \
+            -j"$(nproc)"
+
+      - name: Package Magisk module zip
+        run: |
+          mkdir -p out/zygisk
+          cp module.prop customize.sh post-fs-data.sh service.sh uninstall.sh out/
+          [ -f README.md ] && cp README.md out/
+          for abi in arm64-v8a armeabi-v7a x86 x86_64; do
+            if [ -f "libs/$abi/libanti_detect.so" ]; then
+              cp "libs/$abi/libanti_detect.so" "out/zygisk/$abi.so"
+            fi
+          done
+          echo "=== 打包内容 ==="
+          ls -R out
+          cd out && zip -r ../anti_detect.zip . && cd ..
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: anti_detect_module
+          path: anti_detect.zip
+
+      - name: Release on tag
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Anti-Detect ${{ github.ref_name }}
+          files: anti_detect.zip

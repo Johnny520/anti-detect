@@ -1,0 +1,6 @@
+id=anti_detect
+name=Anti-Detect 反检测模块
+version=1.0
+versionCode=1
+author=文强哥 (Johnny520)
+description=隐藏 Root / 框架(Magisk·Xposed·LSPosed·KernelSU) / Bootloader 解锁 / 改过的系统文件，让其他 App 检测不到本机被改过。
